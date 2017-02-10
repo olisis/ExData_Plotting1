@@ -5,7 +5,7 @@ unzip("tmp.zip")
 d <- read.csv("household_power_consumption.txt", sep=";", header=TRUE,stringsAsFactors=FALSE,na.strings="?")
 # Convert as.Date with the appropriate format before filterning for 2007-02-01 and 2007-02-02
 d.f <- filter(d, as.Date(Date,"%d/%m/%Y") == as.Date("1/2/2007", "%d/%m/%Y") | as.Date(Date,"%d/%m/%Y", "%d/%m/%Y") == as.Date("2/2/2007", "%d/%m/%Y"))
-#Combine the Date and time columns to one in a vector of type char
+# Combine the Date and time columns to one in a vector of type char
 d.dt<-paste(d.f$Date, d.f$Time)
 #Create a vector of type POSIXlt from the vector above
 d.dt.plt<-strptime(d.dt, "%d/%m/%Y %H:%M:%S")
